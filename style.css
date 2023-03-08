@@ -1,0 +1,126 @@
+:root{
+    --primary-color:#425b84;
+    --secondary-color:#5b7bb4;
+    --max-width: 1200px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background: var(--primary-color);
+    color: #fff;
+    font: normal 1rem/1.5 Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+    padding-bottom: 3.125rem;
+}
+
+
+
+/* Header styling */
+
+#main-header{
+    background: var(--secondary-color);
+    padding: 3rem 0;
+}
+#main-header svg{
+    width:1.1rem ;
+    height: 1.1rem;
+    fill: #fff;
+}
+.container{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+h1{
+    font-size: 2rem;
+}
+
+/* timeline stylings */
+#timeline ul{
+    padding: 50px 0;
+}
+#timeline svg{
+    width:.9rem ;
+    height: .9rem;
+    fill: #fff;
+}
+/* middle line */
+#timeline ul li{
+    list-style: none;
+    position: relative;
+    width: 6px;
+    margin: 0 auto;
+    background-color: #fff;
+
+}
+/* each of the boxes */
+#timeline ul li div{
+    position: relative;
+    bottom: 0;
+    padding: 1rem;
+    width: 400px;
+    border-radius: 10px ;  
+    background: var(--secondary-color);
+    transition: all .5s ease-in-out;
+}
+/* boxes on the left */
+#timeline ul li:nth-child(odd) div{
+left: 40px ;
+}
+/* boxes on the right */
+#timeline ul li:nth-child(even) div{
+left: -434px ;
+}
+
+/* small circles in the middle */
+#timeline ul li::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    background: var(--secondary-color);
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+/* the arrows at the bottom */
+#timeline div:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    border-style: solid;
+}
+
+#timeline ul li:nth-child(odd) div::before{
+    left: -8px;
+    border-width: 8px   0 8px 16px ;
+    border-color: transparent transparent var(--secondary-color) transparent;
+}
+#timeline ul li:nth-child(even) div::before{
+    right: -8px;
+    border-width: 8px  16px 8px 0;
+    border-color: transparent transparent var(--secondary-color) transparent;
+}
+
+
+::-webkit-scrollbar{
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track{
+   background-color:var(--secondary-color);
+  }
+  ::-webkit-scrollbar-thumb{
+    width: 13px;
+    height: 2rem;
+    border-radius: 10px;
+    background: #fff;
+  }
