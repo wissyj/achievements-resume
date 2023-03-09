@@ -63,18 +63,25 @@ h1{
     position: relative;
     bottom: 0;
     padding: 1rem;
+    margin: 1rem 0;
     width: 400px;
     border-radius: 10px ;  
     background: var(--secondary-color);
     transition: all .5s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
 }
 /* boxes on the left */
 #timeline ul li:nth-child(odd) div{
 left: 40px ;
+transform: translate(200px, 0);
+
 }
 /* boxes on the right */
 #timeline ul li:nth-child(even) div{
 left: -434px ;
+transform: translate(-200px, 0);
+
 }
 
 /* small circles in the middle */
@@ -82,12 +89,13 @@ left: -434px ;
     content: '';
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: -5px;
     width: 25px;
     height: 25px;
-    background: var(--secondary-color);
+    background: inherit;
     transform: translateX(-50%);
     border-radius: 50%;
+    transition: achievement 0.5s ease-in-out;
 }
 
 /* the arrows at the bottom */
@@ -109,14 +117,55 @@ left: -434px ;
     right: -8px;
     border-width: 8px  16px 8px 0;
     border-color: transparent transparent var(--secondary-color) transparent;
-}
-
+} 
+  /* Show Boxes */
+  #timeline ul li.show div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  #timeline ul li.show:after {
+    background: var(--secondary-color);
+  }
+  
+  
+  @media(max-width: 900px) {
+    #timeline ul li div {
+      width: 250px;
+    }
+  
+    #timeline ul li:nth-child(even) div {
+      left: -284px;
+    }
+  }
+  
+  @media(max-width: 600px) {
+    #timeline ul li {
+      margin-left: 20px;
+    }
+  
+    #timeline ul li div {
+      width: calc(100vw - 90px);
+    }
+  
+    #timeline ul li:nth-child(even) div {
+      left: 40px;
+    }
+  
+    #timeline ul li:nth-child(even) div:before {
+      left: -8px;
+      border-width: 8px   0 8px 16px ;
+      border-color: transparent transparent var(--secondary-color)  transparent;
+    }
+  }
 
 ::-webkit-scrollbar{
     width: 9px;
   }
   ::-webkit-scrollbar-track{
    background-color:var(--secondary-color);
+   border-left: white solid 1px;
   }
   ::-webkit-scrollbar-thumb{
     width: 13px;
